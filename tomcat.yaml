@@ -1,0 +1,5 @@
+- name: Execute Role to Install Tomcat
+  hosts: ubuntu
+  become: true
+  roles:
+  - tomcat
