@@ -7,7 +7,7 @@
 - name: Download Tomcat
   get_url:
     url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.tar.gz
-    dest: /home/ubuntu/
+    dest: /home/ubuntu/apache-tomcat-9.0.82.tar.gz
 
 - name: Untar the file
   shell:
