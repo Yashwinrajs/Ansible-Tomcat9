@@ -11,7 +11,7 @@
 
 - name: Untar the file
   shell:
-    cmd: tar -xvzf apache-tomcat-9.0.82.tar.gz
+    cmd: tar -xvzf /home/ubuntu/apache-tomcat-9.0.82.tar.gz
 
 - name: commenting line of context.xml file
   shell:
