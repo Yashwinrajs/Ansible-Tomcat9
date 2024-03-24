@@ -1,0 +1,37 @@
+- name: Install Packages
+  yum:
+    name: ['java-11-openjdk', 'java-11-openjdk-devel', 'wget']
+    state: present
+    update_cache: yes
+
+- name: Download Tomcat
+  get_url:
+    url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.tar.gz
+    dest: /home/ubuntu/
+
+- name: Untar the file
+  shell:
+    cmd: tar -xvzf apache-tomcat-9.0.82.tar.gz
+
+- name: commenting line of context.xml file
+  shell:
+    cmd: sed 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />/<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->/ig' /home/ubuntu/apache-tomcat-9.0.82/webapps/host-manager/META-INF/context.xml
+
+- name: commenting line of context.xml file
+  shell:
+    cmd: sed 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />/<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->/ig' /home/ubuntu/apache-tomcat-9.0.82/webapps/manager/META-INF/context.xml
+
+- name: adding users under tomcat-users.xml
+  shell:
+    cmd: echo <role rolename="admin-gui"/> >> /home/ubuntu/apache-tomcat-9.0.82/conf/tomcat-users.xml
+    cmd: echo <role rolename="manager-gui"/> >> /home/ubuntu/apache-tomcat-9.0.82/conf/tomcat-users.xml
+    cmd: echo <user username="admin" password="admin" fullName="Administrator" roles="admin-gui,manager-gui"/> >> /home/ubuntu/apache-tomcat-9.0.82/conf/tomcat-users.xml
+
+- name: Starting Tomcat
+  shell:
+    cmd: sh /home/ubuntu/apache-tomcat-9.0.82/bin/startup.sh
+
