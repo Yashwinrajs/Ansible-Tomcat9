@@ -27,9 +27,7 @@
 
 - name: adding users under tomcat-users.xml
   shell:
-    cmd: echo <role rolename="admin-gui"/> >> /home/ubuntu/apache-tomcat-9.0.82/conf/tomcat-users.xml
-    cmd: echo <role rolename="manager-gui"/> >> /home/ubuntu/apache-tomcat-9.0.82/conf/tomcat-users.xml
-    cmd: echo <user username="admin" password="admin" fullName="Administrator" roles="admin-gui,manager-gui"/> >> /home/ubuntu/apache-tomcat-9.0.82/conf/tomcat-users.xml
+    cmd: echo -e "<role rolename="admin-gui"/> \n <role rolename="manager-gui"/> \n <user username="admin" password="admin" fullName="Administrator" roles="admin-gui,manager-gui"/>" >> /home/ubuntu/apache-tomcat-9.0.82/conf/tomcat-users.xml
 
 - name: Starting Tomcat
   shell:
