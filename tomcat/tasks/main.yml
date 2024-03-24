@@ -1,6 +1,6 @@
-- name: Install Packages
+- name: Install Package openjdk
   apt:
-    name: ['java-11-openjdk', 'java-11-openjdk-devel', 'wget']
+    name: ['openjdk-11-jdk']
     state: present
     update_cache: yes
 
