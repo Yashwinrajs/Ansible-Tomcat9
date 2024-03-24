@@ -1,5 +1,5 @@
 - name: Install Packages
-  yum:
+  apt:
     name: ['java-11-openjdk', 'java-11-openjdk-devel', 'wget']
     state: present
     update_cache: yes
