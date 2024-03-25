@@ -14,7 +14,7 @@
 
 - name: Providing user with root permission
   shell:
-    cmd: sudo echo "ubuntu        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+    cmd: sudo echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 - name: commenting line of context.xml file
   shell:
