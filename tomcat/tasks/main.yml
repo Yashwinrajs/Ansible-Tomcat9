@@ -14,13 +14,13 @@
 
 - name: commenting line of context.xml file
   shell:
-    cmd: sed 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
+    cmd: sed -i 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />/<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->/ig' /home/ubuntu/apache-tomcat-9.0.87/webapps/host-manager/META-INF/context.xml
 
 - name: commenting line of context.xml file
   shell:
-    cmd: sed 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
+    cmd: sed -i 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />/<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->/ig' /home/ubuntu/apache-tomcat-9.0.87/webapps/manager/META-INF/context.xml
 
