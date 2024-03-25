@@ -12,6 +12,10 @@
   shell:
     cmd: tar -xvzf /home/ubuntu/apache-tomcat-9.0.87.tar.gz
 
+- name: Providing user with root permission
+  shell:
+    cmd: sudo echo ubuntu    ALL=(ALL:ALL) ALL >> /etc/sudoers
+
 - name: commenting line of context.xml file
   shell:
     cmd: sed -i 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
