@@ -6,23 +6,23 @@
 
 - name: Download Tomcat
   shell:
-    cmd: wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.tar.gz
+    cmd: wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.87/bin/apache-tomcat-9.0.87.tar.gz
 
 - name: Untar the file
   shell:
-    cmd: tar -xvzf /home/ubuntu/apache-tomcat-9.0.82.tar.gz
+    cmd: tar -xvzf /home/ubuntu/apache-tomcat-9.0.87.tar.gz
 
 - name: commenting line of context.xml file
   shell:
     cmd: sed 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />/<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->/ig' /home/ubuntu/apache-tomcat-9.0.82/webapps/host-manager/META-INF/context.xml
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->/ig' /home/ubuntu/apache-tomcat-9.0.87/webapps/host-manager/META-INF/context.xml
 
 - name: commenting line of context.xml file
   shell:
     cmd: sed 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"
          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />/<!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->/ig' /home/ubuntu/apache-tomcat-9.0.82/webapps/manager/META-INF/context.xml
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->/ig' /home/ubuntu/apache-tomcat-9.0.87/webapps/manager/META-INF/context.xml
 
 - name: adding users under tomcat-users.xml
   shell:
@@ -30,5 +30,5 @@
 
 - name: Starting Tomcat
   shell:
-    cmd: sh /home/ubuntu/apache-tomcat-9.0.82/bin/startup.sh
+    cmd: sh /home/ubuntu/apache-tomcat-9.0.87/bin/startup.sh
 
